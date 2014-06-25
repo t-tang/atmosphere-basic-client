@@ -3,16 +3,16 @@ define(
     function(AtmosphereRequest,RestRequest,EventBus){
         'use strict';
 
-        var serviceUrls = {
+        var serviceUrls = Object.freeze({
             connect : 'connect',
             intradayPrice: { subscribe : 'intradayprice/subscribe' }
-        };
+        });
 
 
-        var messages = {
+        var messages = Object.freeze({
             ConnectResponse: 'ConnectResponse',
             IntradayPrice: 'IntradayPrice'
-        };
+        });
 
         var clientId = '';
 
@@ -31,9 +31,9 @@ define(
 
         return Object.freeze({
             connect: connect,
-            intradayPrice: {
+            intradayPrice: Object.freeze({
                 subscribe: intradayPriceSubscribe
-            },
+            }),
 
             messages: messages
         });
